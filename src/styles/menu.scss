@@ -1,0 +1,14 @@
+.menu-container {
+    margin-top: 20px;
+    .menu-list {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        .menu-link {
+            padding: 5px 20px;
+            color: #000;
+        }
+    }
+}

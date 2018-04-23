@@ -1,0 +1,16 @@
+.uk-section-default,
+.uk-navbar-container:not(.uk-navbar-transparent) {
+    background: none;
+}
+.uk-navbar-center {
+    display: none;
+}
+body {
+    background: url('/images/body-top.jpg') top left no-repeat;
+    background-size: 100% auto;
+}
+#tm-main {
+    margin: 0px;
+    padding: 0px;
+}
+
