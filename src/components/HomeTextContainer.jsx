@@ -9,7 +9,7 @@ class HomeTextContainer extends React.Component {
     render() {
         return (
             <div className="home-text-container">
-                <h3></h3>
+                <h3>Czym jest Lorem Ipsum?</h3>
                 <p>Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. 
                     Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki. 
                     Pięć wieków później zaczął być używany przemyśle elektronicznym, pozostając praktycznie niezmienionym. 

@@ -1,8 +1,9 @@
 import React from 'react';
-import {Switch} from 'react-router';
+import { Switch, Route } from 'react-router';
 
 import Menu from './Menu';
 import HomeTextContainer from './HomeTextContainer';
+import HomePage from './HomePage';
 
 class App extends React.Component {
     constructor(props) {
@@ -14,6 +15,9 @@ class App extends React.Component {
             <React.Fragment>
                 <Menu />
                 <HomeTextContainer />
+                <Switch>
+                    <Route exaxt path="/" component={HomePage} />
+                </Switch>
             </React.Fragment>
         )
     }

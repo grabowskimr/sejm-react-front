@@ -3,5 +3,33 @@
     width: 98%;
     box-sizing: border-box;
     padding: 40px;
-    background: #fff;
+    background: white;
+    margin: 50px auto;
+    box-shadow: 3px 6px 30px -5px $boxShadowColor;
+    h3 {
+        margin: 0px 0px 20px;
+        font-weight: 800;
+    }
+    p {
+        margin: 0px;
+        padding: 0px;
+        text-align: justify;
+        color: black;
+        font-size: 16px;
+    }
+    .criteria-link-container {
+        text-align: right;
+        margin-top: 20px;
+        a {
+            text-transform: uppercase;
+            font-weight: 800;
+            font-size: 19px;
+            display: inline-block;
+            color: $greyLight;
+            img {
+                margin-top: -2px;
+                margin-left: 10px;
+            }
+        }
+    }
 }
