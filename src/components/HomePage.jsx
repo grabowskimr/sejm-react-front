@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Search from './Search';
+
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
@@ -7,9 +9,7 @@ class HomePage extends React.Component {
 
     render() {
         return (
-            <div>
-                Home
-            </div>
+            <Search />
         )
     }
 }
