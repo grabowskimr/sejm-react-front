@@ -18,11 +18,10 @@
         }
     }
     .alphabet-container {
-        flex: 2;
         .alphabet-list {
             display: flex;
             list-style: none;
-            justify-content: space-between;
+            justify-content: flex-start;
             margin: 0px;
             align-items: center;
             height: 100%;
@@ -31,6 +30,7 @@
             a {
                 color: $green;
                 font-weight: 800;
+                margin: 0px 2px;
             }
         }
     }

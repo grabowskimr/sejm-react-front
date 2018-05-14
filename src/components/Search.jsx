@@ -1,18 +1,30 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import SearchContainer from '../containers/SearchContainer';
 import Sorting from '../containers/Sorting';
 import SearchInput from '../containers/SearchInput';
 import Alphabet from '../containers/Alphabet';
 import ListButton from '../containers/ListButton';
+import { updateSearchQuery } from '../actions/actions';
 
 class Search extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showMenu: false
+            showMenu: false,
+            searchQuery: this.props.searchQuery,
+            alphabet: this.props.alphabet
         }
         this.toggleMenu = this.toggleMenu.bind(this);
+        this.changeSearchQuery = this.changeSearchQuery.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            searchQuery: nextProps.searchQuery,
+            alphabet: nextProps.alphabet
+        })
     }
 
     toggleMenu() {
@@ -21,10 +33,14 @@ class Search extends React.Component {
         })
     }
 
+    changeSearchQuery(e) {
+        this.props.updateSearchQuery(e.target.value);
+    }
+
     render() {
         return (
             <SearchContainer
-                alphabet={Alphabet}
+                alphabet={() =>Alphabet({alphabet: this.state.alphabet})}
             >
                 <Sorting show={this.state.showMenu} onClick={this.toggleMenu}>
                     <ListButton name="Wg partii" />
@@ -34,10 +50,17 @@ class Search extends React.Component {
                     <ListButton name="Liczba punktów" />
                     <ListButton name="Tylko przyjaźni zwierzętom" />
                 </Sorting>
-                <SearchInput />
+                <SearchInput value={this.state.searchQuery} onChange={(e) => this.changeSearchQuery(e)} />
             </SearchContainer>
         )
     }
 }
 
-export default Search;
+function mapStateToProps(state) {
+    return {
+        searchQuery: state.appReducer.searchQuery,
+        alphabet: state.appReducer.alphabet
+    }
+}
+
+export default connect(mapStateToProps, {updateSearchQuery})(Search);
