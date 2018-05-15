@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Search from './Search';
-
 class EnvoyPage extends React.Component {
     constructor(props) {
         super(props);
@@ -9,7 +7,7 @@ class EnvoyPage extends React.Component {
 
     render() {
         return (
-            <div></div>
+            <div>envoypage</div>
         )
     }
 }

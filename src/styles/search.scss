@@ -43,6 +43,7 @@
         background: $green;
         box-shadow: 3px 6px 30px -5px $boxShadowColor;
         display: none;
+        z-index: 999;
         &.show {
             display: block;
         }

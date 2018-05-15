@@ -1,0 +1,91 @@
+.envoy-list {
+    display: flex;
+    box-sizing: border-box;
+    margin: 30px auto 50px;
+    position: relative;
+    border: 1px solid #e5e5e5;
+    padding: 30px 20px 20px;
+    background: white;
+    flex-wrap: wrap;
+    & > h3 {
+        position: absolute;
+        top: -25px;
+        left: calc(50% - 15px);
+        display: flex;
+        width: 50px;
+        height: 50px;
+        background: $green;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        border-radius: 50%;
+        font-weight: 600;
+    }
+    .envoy-item-list {
+        min-width: calc(33.33% - 20px);
+        display: flex;
+        margin: 10px;
+        box-sizing: border-box;
+        border: 1px solid $greyLight;
+        max-height: 110px;
+        transition: all .2s cubic-bezier(.31,.74,.29,.93);
+        box-shadow: 0px 0px 0px -6px $boxShadowColor;
+        &:hover {
+            box-shadow: 0px 0px 15px -6px $boxShadowColor;
+        }
+        .envoy-image {
+            width: 110px;
+            img {
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+        .envoy-content {
+            width: calc(100% - 110px);
+            position: relative;
+            box-sizing: border-box;
+            padding: 10px;
+            h3 {
+                font-size: 17px;
+                font-weight: 600;
+                line-height: normal;            
+            }
+            .envoy-points {
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                    width: 40px;
+                }
+                span {
+                    display: block;
+                    margin-right: 5px;
+                    font-size: 25px;
+                    font-weight: 900;
+                    &.bad {
+                        color: $red;
+                    }
+                    &.good {
+                        color: $green;
+                    }
+                    &.medium {
+                        color: $greyText;
+                    }
+                }
+            }
+            .envoy-party {
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+                display: block;
+                height: 40px;
+                line-height: 40px;
+                color: $greyText;
+            }
+        }
+    }
+}

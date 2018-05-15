@@ -1,8 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
 
-import Menu from './Menu';
-import HomeTextContainer from './HomeTextContainer';
+import Header from './Header';
 import HomePage from './HomePage';
 import EnvoyPage from './EnvoyPage';
 
@@ -14,12 +13,13 @@ class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Menu />
-                <HomeTextContainer />
-                <Switch>
-                    <Route exaxt path="/" component={HomePage} />
-                    <Route path="/envoy/:id" component={EnvoyPage} />
-                </Switch>
+                <Header />
+                <div className="content-container">
+                    <Switch>
+                        <Route exact path="/" component={HomePage} />
+                        <Route path="/envoy/:id" component={EnvoyPage} />
+                    </Switch>
+                </div>
             </React.Fragment>
         )
     }

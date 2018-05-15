@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import Search from './Search';
 import { getEnvoyList } from '../actions/actions';
-import EnvoyList from './EnvoyList';
+import EnvoyList from '../containers/EnvoyList';
+import HomeTextContainer from './HomeTextContainer';
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class HomePage extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log(nextProps.envoyList);
         this.setState({
             envoyList: nextProps.envoyList
         })
@@ -26,8 +28,11 @@ class HomePage extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <HomeTextContainer />
                 <Search />
-                <EnvoyList />
+                {Object.keys(this.state.envoyList).map((key) => (
+                    <EnvoyList key={key} letter={key} list={this.state.envoyList[key]}/>
+                ))}
             </React.Fragment>
         )
     }

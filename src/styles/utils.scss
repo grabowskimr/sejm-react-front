@@ -6,13 +6,43 @@
     display: none;
 }
 body {
-    background: url('/images/body-top.jpg') top left no-repeat;
+    background: url('/images/bg.jpg') 0px 49.739vw repeat-y;
     background-size: 100% auto;
+}
+.tm-header {
+    display: none;
+}
+.tm-header-react {
+    position: relative;
+}
+.tm-header-react .uk-navbar-container {
+    z-index: 99;
+    position: relative;
+}
+.tm-header-react:after {
+    content: "";
+    background: url('/images/body-top.jpg') top left no-repeat;
+    position: absolute;
+    top: 0px;
+    background-size: 100% auto;
+    left: 0px;
+    width: 100%;
+    height: 49.739vw;
 }
 #tm-main {
     margin: 0px;
     padding: 0px;
+    .uk-container {
+        padding: 0px;
+        max-width: 100%;
+    }
 }
 .el-image {
     width: 100%;
+}
+.content-container {
+    max-width: 1200px;
+    margin: 0px auto;
+    z-index: 99;
+    position: relative;
 }
