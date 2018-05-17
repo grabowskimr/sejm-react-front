@@ -2,9 +2,9 @@
 $_POST = json_decode(file_get_contents('php://input'), true);
 
 $servername = "localhost";
-$username = "sejmik_2018";
-$password = "c0lUFF45M";
-$dbmane = "sejmik_2018";
+$username = "tets";
+$password = "test";
+$dbmane = "tets";
 
 $conn = new mysqli($servername, $username, $password, $dbmane);
 $conn->set_charset("utf8");
