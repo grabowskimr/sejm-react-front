@@ -13,3 +13,10 @@ export function getEnvoyList() {
         type: ACTIONS.GET_ENVOY_LIST
     }
 }
+
+export function getEnvoy(id) {
+    return {
+        type: ACTIONS.GET_ENVOY,
+        payload: {id}
+    }
+}

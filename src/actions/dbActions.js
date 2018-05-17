@@ -12,6 +12,11 @@ const dbActions = {
                 });
                 return {alphabet: Object.keys(envoyList), envoyList};
             })
+    },
+
+    getEnvoy: function(id) {
+        return axios.get(`/dbCallFront.php?action=getEnvoy&id=${id}`)
+            .then(response => response.data)
     }
 
 }
