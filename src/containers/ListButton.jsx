@@ -3,7 +3,7 @@ import React from 'react';
 const ListButton = (props) => (
     <li>
         {!props.children ?
-            <a href="#" className="list-button">
+            <a href="#" className="list-button" {...props}>
                 {props.name}
             </a>
          : <span className="list-span">

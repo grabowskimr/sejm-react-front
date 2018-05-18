@@ -8,7 +8,8 @@ const appReducer = (state = {
     currentEnvoyId: 0,
     nextEnvoyId: 0,
     prevEnvoyId: 0,
-    structure: []
+    structure: [],
+    alphabetOrder: 'asc'
 }, action) => {
     switch(action.type) {
         case ACTIONS.UPDATE_SEARCH_QUERY: 
@@ -16,11 +17,28 @@ const appReducer = (state = {
                 ...state,
                 searchQuery: action.payload.query
             }
+        case ACTIONS.GET_ENVOY_LIST:
+            return {
+                ...state,
+                alphabetOrder: action.payload.order
+            }
         case ACTIONS.GET_ENVOY_LIST_SUCCESS:
+        case ACTIONS.GET_ENVOY_LIST_BY_PARTY_SUCCESS:
+        case ACTIONS.GET_ENVOY_LIST_BY_POINTS_SUCCESS:
+        case ACTIONS.GET_ENVOY_LIST_POSITIVE_SUCCESS:
+        case ACTIONS.GET_QUERY_LIST_SUCCESS:
             return {
                 ...state,
                 envoyList: action.payload.list.envoyList,
                 alphabet: action.payload.list.alphabet
+            }
+        case ACTIONS.GET_ENVOY_LIST_BY_PARTY:
+        case ACTIONS.GET_ENVOY_LIST_BY_POINTS:
+        case ACTIONS.GET_ENVOY_LIST_POSITIVE: 
+        case ACTIONS.GET_QUERY_LIST_SUCCESS:
+            return {
+                ...state,
+                alphabetOrder: 'asc'
             }
         case ACTIONS.GET_ENVOY:
             return {

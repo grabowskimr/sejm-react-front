@@ -7,7 +7,7 @@ const EnvoyPaginationContent = (props) => (
             <Link to={"/envoy/" + props.prev} onClick={props.onPrevClick} className="prev-pagination">Poprzedni</Link> 
             : <span className="prev-pagination">Poprzedni</span>}
         <p>
-            <Link to="/">Powrót do wyniku wyszukiwania</Link>
+            <Link to="/">Powrót do listy</Link>
         </p>
         {props.next != 0 ? 
             <Link to={"/envoy/" + props.next} onClick={props.onNextClick} className="next-pagination">Następny</Link> 

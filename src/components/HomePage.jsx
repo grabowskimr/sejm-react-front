@@ -10,19 +10,20 @@ class HomePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            envoyList: this.props.envoyList
+            envoyList: this.props.envoyList,
+            alphabetOrder: this.props.alphabetOrder
         }
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.envoyList);
         this.setState({
-            envoyList: nextProps.envoyList
+            envoyList: nextProps.envoyList,
+            alphabetOrder: nextProps.alphabetOrder
         })
     }
 
     componentDidMount() {
-        this.props.getEnvoyList();
+        this.props.getEnvoyList('asc');
     }
 
     render() {
@@ -30,9 +31,14 @@ class HomePage extends React.Component {
             <React.Fragment>
                 <HomeTextContainer />
                 <Search />
-                {Object.keys(this.state.envoyList).map((key) => (
-                    <EnvoyList key={key} letter={key} list={this.state.envoyList[key]}/>
-                ))}
+                { this.state.alphabetOrder === 'asc' ?
+                    Object.keys(this.state.envoyList).map((key) => (
+                        <EnvoyList key={key} letter={key} list={this.state.envoyList[key]}/>
+                    )) : 
+                    Object.keys(this.state.envoyList).reverse().map((key) => (
+                        <EnvoyList key={key} letter={key} list={this.state.envoyList[key]}/>
+                    ))
+                }
             </React.Fragment>
         )
     }
@@ -40,7 +46,8 @@ class HomePage extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        envoyList: state.appReducer.envoyList
+        envoyList: state.appReducer.envoyList,
+        alphabetOrder: state.appReducer.alphabetOrder
     }
 }
 

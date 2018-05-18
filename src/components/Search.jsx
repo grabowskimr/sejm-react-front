@@ -6,7 +6,7 @@ import Sorting from '../containers/Sorting';
 import SearchInput from '../containers/SearchInput';
 import Alphabet from '../containers/Alphabet';
 import ListButton from '../containers/ListButton';
-import { updateSearchQuery } from '../actions/actions';
+import { updateSearchQuery, getEnvoyListByParty, getEnvoyList, getEnvoyListByPoints, getEnvoyListPositive, getQueryList } from '../actions/actions';
 
 class Search extends React.Component {
     constructor(props) {
@@ -19,6 +19,12 @@ class Search extends React.Component {
         this.toggleMenu = this.toggleMenu.bind(this);
         this.changeSearchQuery = this.changeSearchQuery.bind(this);
         this.scrollToLetter = this.scrollToLetter.bind(this);
+        this.getListByParty = this.getListByParty.bind(this);
+        this.getListAsc = this.getListAsc.bind(this);
+        this.getListDesc = this.getListDesc.bind(this);
+        this.getListByPoints = this.getListByPoints.bind(this);
+        this.getOnlyPositive = this.getOnlyPositive.bind(this);
+        this.searchEnvoes = this.searchEnvoes.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -36,12 +42,58 @@ class Search extends React.Component {
 
     changeSearchQuery(e) {
         this.props.updateSearchQuery(e.target.value);
+        if(e.target.value.length > 3) {
+            this.props.getQueryList(e.target.value);
+        }
+        if(e.target.value.length == 0) {
+            this.props.getEnvoyList('asc');
+        }
     }
 
     scrollToLetter(e) {
         jQuery('body, html').animate({
             scrollTop: jQuery(`#letter-${e.target.name}`).offset().top - 40
         }, 500)
+    }
+
+    getListByParty(e) {
+        e.preventDefault();
+        this.props.getEnvoyListByParty();
+        this.toggleMenu();
+    }
+
+    getListAsc(e) {
+        e.preventDefault();
+        this.props.getEnvoyList('asc');
+        this.toggleMenu();
+    }
+
+    getListDesc(e) {
+        e.preventDefault();
+        this.props.getEnvoyList('desc');
+        this.toggleMenu();
+    }
+
+    getListByPoints(e) {
+        e.preventDefault();
+        this.props.getEnvoyListByPoints();
+        this.toggleMenu();
+    }
+
+    getOnlyPositive(e) {
+        e.preventDefault();
+        this.props.getEnvoyListPositive();
+        this.toggleMenu();
+    }
+
+    searchEnvoes(e) {
+        e.preventDefault();
+        if(this.state.searchQuery.length > 3) {
+            this.props.getQueryList(this.state.searchQuery);
+        }
+        if(this.state.searchQuery.length == 0) {
+            this.props.getEnvoyList('asc');
+        }
     }
 
     render() {
@@ -53,14 +105,14 @@ class Search extends React.Component {
                 })}
             >
                 <Sorting show={this.state.showMenu} onClick={this.toggleMenu}>
-                    <ListButton name="Wg partii" />
+                    <ListButton name="Wg partii" onClick={this.getListByParty} />
                     <ListButton name="Alfabetycznie">
-                        <a href="#">A-Z</a> | <a href="#">Z-A</a>
+                        <a href="#" onClick={this.getListAsc}>A-Z</a> | <a href="#" onClick={this.getListDesc}>Z-A</a>
                     </ListButton>
-                    <ListButton name="Liczba punktów" />
-                    <ListButton name="Tylko przyjaźni zwierzętom" />
+                    <ListButton name="Liczba punktów" onClick={this.getListByPoints} />
+                    <ListButton name="Tylko przyjaźni zwierzętom" onClick={this.getOnlyPositive} />
                 </Sorting>
-                <SearchInput value={this.state.searchQuery} onChange={(e) => this.changeSearchQuery(e)} />
+                <SearchInput value={this.state.searchQuery} onChange={(e) => this.changeSearchQuery(e)} onSubmit={this.searchEnvoes}/>
             </SearchContainer>
         )
     }
@@ -73,4 +125,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {updateSearchQuery})(Search);
+export default connect(mapStateToProps, {updateSearchQuery, getEnvoyListByParty, getEnvoyList, getEnvoyListByPoints, getEnvoyListPositive, getQueryList})(Search);

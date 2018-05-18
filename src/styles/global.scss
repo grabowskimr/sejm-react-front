@@ -9,16 +9,18 @@
     flex-wrap: wrap;
     & > h3 {
         position: absolute;
-        top: -25px;
-        left: calc(50% - 15px);
+        top: -30px;
+        left: calc(50% - 20px);
+        padding: 5px;
         display: flex;
-        width: 50px;
+        min-width: 50px;
+        width: auto;
         height: 50px;
         background: $green;
         justify-content: center;
         align-items: center;
         color: #fff;
-        border-radius: 50%;
+        border-radius: 50px;
         font-weight: 600;
     }
     .envoy-item-list {

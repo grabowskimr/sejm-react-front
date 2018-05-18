@@ -8,9 +8,28 @@ export function updateSearchQuery(query) {
     }
 }
 
-export function getEnvoyList() {
+export function getEnvoyList(order) {
     return {
-        type: ACTIONS.GET_ENVOY_LIST
+        type: ACTIONS.GET_ENVOY_LIST,
+        payload: {order}
+    }
+}
+
+export function getEnvoyListPositive() {
+    return {
+        type: ACTIONS.GET_ENVOY_LIST_POSITIVE
+    }
+}
+
+export function getEnvoyListByParty() {
+    return {
+        type: ACTIONS.GET_ENVOY_LIST_BY_PARTY
+    }
+}
+
+export function getEnvoyListByPoints() {
+    return {
+        type: ACTIONS.GET_ENVOY_LIST_BY_POINTS
     }
 }
 
@@ -24,5 +43,12 @@ export function getEnvoy(id) {
 export function getStructure() {
     return {
         type: ACTIONS.GET_STRUCTURE
+    }
+}
+
+export function getQueryList(query) {
+    return {
+        type: ACTIONS.GET_QUERY_LIST,
+        payload: {query}
     }
 }
