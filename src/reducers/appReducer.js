@@ -6,7 +6,8 @@ const appReducer = (state = {
     alphabet: [],
     currentEnvoy: {},
     nextEnvoyId: 0,
-    prevEnvoyId: 0
+    prevEnvoyId: 0,
+    structure: []
 }, action) => {
     switch(action.type) {
         case ACTIONS.UPDATE_SEARCH_QUERY: 
@@ -26,6 +27,12 @@ const appReducer = (state = {
                 currentEnvoy: action.payload.envoy[1],
                 prevEnvoyId: action.payload.envoy[0].id,
                 nextEnvoyId: action.payload.envoy[2].id
+            }
+        case ACTIONS.GET_STRUCTURE_SUCCESS: 
+        console.log(action.payload.structure);
+            return {
+                ...state,
+                structure: action.payload.structure
             }
         default:
             return state;

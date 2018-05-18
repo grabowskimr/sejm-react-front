@@ -17,6 +17,11 @@ const dbActions = {
     getEnvoy: function(id) {
         return axios.get(`/dbCallFront.php?action=getEnvoy&id=${id}`)
             .then(response => response.data)
+    },
+
+    getEnvoyStructure: function() {
+        return axios.get(`/dbCallFront.php?action=getEnvoyStructure`)
+            .then(response => response.data)
     }
 
 }

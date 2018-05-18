@@ -13,9 +13,15 @@ function* getEnvoy(action) {
     yield put({type: ACTIONS.GET_ENVOY_SUCCESS, payload: {envoy}});
 }
 
+function* getStructure() {
+    const structure = yield call(dbActions.getEnvoyStructure);
+    yield put({type: ACTIONS.GET_STRUCTURE_SUCCESS, payload: {structure}});
+}
+
 function* sejmikSaga() {
     yield takeEvery(ACTIONS.GET_ENVOY_LIST, getEnvoyList);
     yield takeEvery(ACTIONS.GET_ENVOY, getEnvoy);
+    yield takeEvery(ACTIONS.GET_STRUCTURE, getStructure);
 }
 
 export default sejmikSaga;

@@ -20,3 +20,9 @@ export function getEnvoy(id) {
         payload: {id}
     }
 }
+
+export function getStructure() {
+    return {
+        type: ACTIONS.GET_STRUCTURE
+    }
+}
