@@ -18,6 +18,7 @@ class Search extends React.Component {
         }
         this.toggleMenu = this.toggleMenu.bind(this);
         this.changeSearchQuery = this.changeSearchQuery.bind(this);
+        this.scrollToLetter = this.scrollToLetter.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -37,10 +38,19 @@ class Search extends React.Component {
         this.props.updateSearchQuery(e.target.value);
     }
 
+    scrollToLetter(e) {
+        jQuery('body, html').animate({
+            scrollTop: jQuery(`#letter-${e.target.name}`).offset().top - 40
+        }, 500)
+    }
+
     render() {
         return (
             <SearchContainer
-                alphabet={() =>Alphabet({alphabet: this.state.alphabet})}
+                alphabet={() =>Alphabet({
+                    alphabet: this.state.alphabet,
+                    scrollToLetter: this.scrollToLetter
+                })}
             >
                 <Sorting show={this.state.showMenu} onClick={this.toggleMenu}>
                     <ListButton name="Wg partii" />

@@ -10,8 +10,6 @@ class EnvoyPage extends React.Component {
         this.state = {
             id: this.props.match.params.id,
             envoy: this.props.currentEnvoy,
-            nextEnvoyId: this.props.nextEnvoyId,
-            prevEnvoyId: this.props.prevEnvoyId,
             criterions: [],
             criterionsNames: []
         }
@@ -26,7 +24,9 @@ class EnvoyPage extends React.Component {
         var criterions = [];
         Object.keys(nextProps.currentEnvoy).map((key) => {
             if(key.indexOf('criterion') >= 0) {
-                criterions.push({[key]: JSON.parse(nextProps.currentEnvoy[key])});
+                if(nextProps.currentEnvoy[key] != '') {
+                    criterions.push({[key]: JSON.parse(nextProps.currentEnvoy[key])});
+                }
             }
         });
         var criterionsNames = {};
@@ -37,17 +37,12 @@ class EnvoyPage extends React.Component {
         });
         this.setState({
             envoy: nextProps.currentEnvoy,
-            nextEnvoyId: nextProps.nextEnvoyId,
-            prevEnvoyId: nextProps.prevEnvoyId,
             criterions: criterions,
             criterionsNames: criterionsNames
         })
     }
 
     render() {
-        console.log(this.state.envoy);
-        console.log(this.state.criterions);
-        console.log(this.state.criterionsNames);
         return (
             <EnvoyContent envoy={this.state.envoy} criterions={this.state.criterions} criterionsNames={this.state.criterionsNames} />
         )
@@ -57,8 +52,6 @@ class EnvoyPage extends React.Component {
 function mapStateToProps(state) {
     return {
         currentEnvoy: state.appReducer.currentEnvoy,
-        nextEnvoyId: state.appReducer.nextEnvoyId,
-        prevEnvoyId: state.appReducer.prevEnvoyId,
         structure: state.appReducer.structure
     }
 }

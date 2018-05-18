@@ -4,7 +4,7 @@ import EnvoyBasicInformation from './EnvoyBasicInformation';
 import EnvoyPointsTable from './EnvoyPointsTable';
 
 const EnvoyInformation = (props) => (
-    <div>
+    <div className="envoy-information">
         <EnvoyBasicInformation envoy={props.envoy}/>
         <EnvoyPointsTable {...props} />
     </div>
