@@ -2,8 +2,8 @@ import axios from 'axios';
 
 const dbActions = {
 
-    getEnvoyList: function() {
-        return axios.get('/dbCallFront.php?action=getEnvoyList')
+    getEnvoyList: function(type) {
+        return axios.get(`/dbCallFront.php?action=getEnvoyList&type=${type}`)
             .then(response => {
                 var envoyList = {};
                 response.data.map((item, index) => {
@@ -14,8 +14,8 @@ const dbActions = {
             })
     },
 
-    getEnvoyListByParty: function() {
-        return axios.get('/dbCallFront.php?action=getEnvoyListByParty')
+    getEnvoyListByParty: function(type) {
+        return axios.get(`/dbCallFront.php?action=getEnvoyListByParty&type=${type}`)
             .then(response => {
                 var envoyList = {};
                 response.data.map((item, index) => {
@@ -26,20 +26,24 @@ const dbActions = {
             })
     },
 
-    getEnvoyListByPoints: function() {
-        return axios.get('/dbCallFront.php?action=getEnvoyListByPoints')
+    getEnvoyListByPoints: function(type) {
+        return axios.get(`/dbCallFront.php?action=getEnvoyListByPoints&type=${type}`)
             .then(response => {
-                var envoyList = {};
+                var list = {};
                 response.data.map((item, index) => {
-                    !(item.points in envoyList) && (envoyList[item.points] = []);
-                    envoyList[item.points].push(item);
+                    !(`${item.points}p` in list) && (list[`${item.points}p`] = []);
+                    list[`${item.points}p`].push(item);
                 });
-                return {alphabet: Object.keys(envoyList), envoyList};
+                var envoyList = {};
+                Object.keys(list).sort().forEach(function(key) {
+                    envoyList[`${key}`] = list[key];
+                });
+                return {alphabet: Object.keys(list).sort(), envoyList};
             })
     },
 
-    getEnvoyListOnlyPositive: function() {
-        return axios.get('/dbCallFront.php?action=getEnvoyList')
+    getEnvoyListOnlyPositive: function(type) {
+        return axios.get(`/dbCallFront.php?action=getEnvoyList&type=${type}`)
             .then(response => {
                 var envoyList = {};
                 response.data.map((item, index) => {
@@ -72,7 +76,17 @@ const dbActions = {
     getEnvoyStructure: function() {
         return axios.get(`/dbCallFront.php?action=getEnvoyStructure`)
             .then(response => response.data)
-    }
+    },
+
+    getBestForAnimals: function(type) {
+        return axios.get(`/dbCallFront.php?action=getBestForAnimals`)
+            .then(response => response.data)
+    },
+
+    getWorstForAnimals: function(type) {
+        return axios.get(`/dbCallFront.php?action=getWorstForAnimals`)
+            .then(response => response.data)
+    },
 
 }
 

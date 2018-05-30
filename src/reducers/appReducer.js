@@ -9,7 +9,9 @@ const appReducer = (state = {
     nextEnvoyId: 0,
     prevEnvoyId: 0,
     structure: [],
-    alphabetOrder: 'asc'
+    alphabetOrder: 'asc',
+    bestForAnimals: [],
+    worstForAnimals: []
 }, action) => {
     switch(action.type) {
         case ACTIONS.UPDATE_SEARCH_QUERY: 
@@ -18,6 +20,7 @@ const appReducer = (state = {
                 searchQuery: action.payload.query
             }
         case ACTIONS.GET_ENVOY_LIST:
+        case ACTIONS.GET_ENVOY_LIST_BY_POINTS:
             return {
                 ...state,
                 alphabetOrder: action.payload.order
@@ -56,6 +59,16 @@ const appReducer = (state = {
             return {
                 ...state,
                 structure: action.payload.structure
+            }
+        case ACTIONS.GET_BEST_FOR_ANIMALS_SUCCESS:
+            return {
+                ...state,
+                bestForAnimals: action.payload.list
+            }
+        case ACTIONS.GET_WORST_FOR_ANIMALS_SUCCESS:
+            return {
+                ...state,
+                worstForAnimals: action.payload.list
             }
         default:
             return state;

@@ -8,28 +8,31 @@ export function updateSearchQuery(query) {
     }
 }
 
-export function getEnvoyList(order) {
+export function getEnvoyList(order, type) {
     return {
         type: ACTIONS.GET_ENVOY_LIST,
-        payload: {order}
+        payload: {order, type}
     }
 }
 
-export function getEnvoyListPositive() {
+export function getEnvoyListPositive(type) {
     return {
-        type: ACTIONS.GET_ENVOY_LIST_POSITIVE
+        type: ACTIONS.GET_ENVOY_LIST_POSITIVE,
+        payload: {type}
     }
 }
 
-export function getEnvoyListByParty() {
+export function getEnvoyListByParty(type) {
     return {
-        type: ACTIONS.GET_ENVOY_LIST_BY_PARTY
+        type: ACTIONS.GET_ENVOY_LIST_BY_PARTY,
+        payload: {type}
     }
 }
 
-export function getEnvoyListByPoints() {
+export function getEnvoyListByPoints(order, type) {
     return {
-        type: ACTIONS.GET_ENVOY_LIST_BY_POINTS
+        type: ACTIONS.GET_ENVOY_LIST_BY_POINTS,
+        payload: {order, type}
     }
 }
 
@@ -50,5 +53,17 @@ export function getQueryList(query) {
     return {
         type: ACTIONS.GET_QUERY_LIST,
         payload: {query}
+    }
+}
+
+export function getBestForAnimals() {
+    return {
+        type: ACTIONS.GET_BEST_FOR_ANIMALS
+    }
+}
+
+export function getWorstForAnimals() {
+    return {
+        type: ACTIONS.GET_WORST_FOR_ANIMALS
     }
 }

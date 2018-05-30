@@ -11,13 +11,13 @@ class Menu extends React.Component {
     render() {
         return (
             <MenuContainer>
-                <MenuLink to="#" name="Posłowie"/>
-                <MenuLink to="#" name="Senatorowie"/>
-                <MenuLink to="#" name="Nasze kryteria"/>
-                <MenuLink to="#" name="Przyjźni zwierzętom"/>
-                <MenuLink to="#" name="Nieprzyjaźni zwierzętom"/>
+                <MenuLink to="/meps" name="Posłowie"/>
+                <MenuLink to="/senators" name="Senatorowie"/>
+                <MenuLink to="/criterions" name="Nasze kryteria"/>
+                <MenuLink to="/best" name="Przyjźni zwierzętom"/>
+                <MenuLink to="/worst" name="Nieprzyjaźni zwierzętom"/>
                 <MenuLink to="#" name="W twoim okręgu wyborczym"/>
-                <MenuLink to="#" name="Kontakt"/>
+                <MenuLink to="/contact" name="Kontakt"/>
             </MenuContainer>
         )
     }

@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+var scrollTop = () => {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+}
+
 const Envoy = ({envoy}) => {
     return (
-        <Link to={"/envoy/" + envoy.id} className="envoy-item-list">
+        <Link to={"/envoy/" + envoy.id} className="envoy-item-list" onClick={scrollTop}>
             <div className="envoy-image">
                 <img src={envoy.image} alt="image"/>
             </div>

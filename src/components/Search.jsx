@@ -14,15 +14,17 @@ class Search extends React.Component {
         this.state = {
             showMenu: false,
             searchQuery: this.props.searchQuery,
-            alphabet: this.props.alphabet
-        }
+            alphabet: this.props.alphabet,
+            type: this.props.type
+        };
         this.toggleMenu = this.toggleMenu.bind(this);
         this.changeSearchQuery = this.changeSearchQuery.bind(this);
         this.scrollToLetter = this.scrollToLetter.bind(this);
         this.getListByParty = this.getListByParty.bind(this);
         this.getListAsc = this.getListAsc.bind(this);
         this.getListDesc = this.getListDesc.bind(this);
-        this.getListByPoints = this.getListByPoints.bind(this);
+        this.getListByPointsAsc = this.getListByPointsAsc.bind(this);
+        this.getListByPointDesc = this.getListByPointDesc.bind(this);
         this.getOnlyPositive = this.getOnlyPositive.bind(this);
         this.searchEnvoes = this.searchEnvoes.bind(this);
     }
@@ -46,7 +48,7 @@ class Search extends React.Component {
             this.props.getQueryList(e.target.value);
         }
         if(e.target.value.length == 0) {
-            this.props.getEnvoyList('asc');
+            this.props.getEnvoyList('asc', this.state.type);
         }
     }
 
@@ -58,31 +60,37 @@ class Search extends React.Component {
 
     getListByParty(e) {
         e.preventDefault();
-        this.props.getEnvoyListByParty();
+        this.props.getEnvoyListByParty(this.state.type);
         this.toggleMenu();
     }
 
     getListAsc(e) {
         e.preventDefault();
-        this.props.getEnvoyList('asc');
+        this.props.getEnvoyList('asc', this.state.type);
         this.toggleMenu();
     }
 
     getListDesc(e) {
         e.preventDefault();
-        this.props.getEnvoyList('desc');
+        this.props.getEnvoyList('desc', this.state.type);
         this.toggleMenu();
     }
 
-    getListByPoints(e) {
+    getListByPointsAsc(e) {
         e.preventDefault();
-        this.props.getEnvoyListByPoints();
+        this.props.getEnvoyListByPoints('asc', this.state.type);
+        this.toggleMenu();
+    }
+
+    getListByPointDesc(e) {
+        e.preventDefault();
+        this.props.getEnvoyListByPoints('desc', this.state.type);
         this.toggleMenu();
     }
 
     getOnlyPositive(e) {
         e.preventDefault();
-        this.props.getEnvoyListPositive();
+        this.props.getEnvoyListPositive(this.state.type);
         this.toggleMenu();
     }
 
@@ -92,7 +100,7 @@ class Search extends React.Component {
             this.props.getQueryList(this.state.searchQuery);
         }
         if(this.state.searchQuery.length == 0) {
-            this.props.getEnvoyList('asc');
+            this.props.getEnvoyList('asc', this.state.type);
         }
     }
 
@@ -109,7 +117,9 @@ class Search extends React.Component {
                     <ListButton name="Alfabetycznie">
                         <a href="#" onClick={this.getListAsc}>A-Z</a> | <a href="#" onClick={this.getListDesc}>Z-A</a>
                     </ListButton>
-                    <ListButton name="Liczba punktów" onClick={this.getListByPoints} />
+                    <ListButton name="Liczba punktów">
+                        <a href="#" onClick={this.getListByPointsAsc}>MIN-MAX</a> | <a href="#" onClick={this.getListByPointDesc}>MAX-MIN</a>
+                    </ListButton>
                     <ListButton name="Tylko przyjaźni zwierzętom" onClick={this.getOnlyPositive} />
                 </Sorting>
                 <SearchInput value={this.state.searchQuery} onChange={(e) => this.changeSearchQuery(e)} onSubmit={this.searchEnvoes}/>

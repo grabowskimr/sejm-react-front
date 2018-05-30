@@ -6,7 +6,7 @@ import { getEnvoyList } from '../actions/actions';
 import EnvoyList from '../containers/EnvoyList';
 import HomeTextContainer from './HomeTextContainer';
 
-class HomePage extends React.Component {
+class MepsPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,14 +23,14 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getEnvoyList('asc','all');
+        this.props.getEnvoyList('asc', 'envoy');
     }
 
     render() {
         return (
             <React.Fragment>
-                <HomeTextContainer />
-                <Search type="all" />
+                <h3 className="subpage-title">Posłowie</h3>
+                <Search type="envoy" />
                 { this.state.alphabetOrder === 'asc' ?
                     Object.keys(this.state.envoyList).map((key) => (
                         <EnvoyList key={key} letter={key} list={this.state.envoyList[key]}/>
@@ -51,4 +51,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {getEnvoyList})(HomePage);
+export default connect(mapStateToProps, {getEnvoyList})(MepsPage);

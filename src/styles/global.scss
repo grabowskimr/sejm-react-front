@@ -1,3 +1,6 @@
+.danger {
+    background: $red;
+}
 .envoy-list {
     display: flex;
     box-sizing: border-box;
@@ -22,6 +25,9 @@
         color: #fff;
         border-radius: 50px;
         font-weight: 600;
+        &.danger {
+            background: $red;
+        }
     }
     .envoy-item-list {
         min-width: calc(33.33% - 20px);
@@ -87,7 +93,26 @@
                 height: 40px;
                 line-height: 40px;
                 color: $greyText;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 60%;
+                white-space: nowrap;
             }
         }
     }
+}
+.subpage-title {
+    margin: 30px auto;
+    font-size: 45px;
+    text-align: center;
+}
+.criterions-content,
+.contact-container {
+    border: 1px solid $greyLight;
+    padding: 30px;
+    background: white;
+    box-sizing: border-box;
+}
+.friend-list {
+    margin-top: 50px;
 }
