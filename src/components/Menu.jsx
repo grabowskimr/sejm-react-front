@@ -16,7 +16,7 @@ class Menu extends React.Component {
                 <MenuLink to="/criterions" name="Nasze kryteria"/>
                 <MenuLink to="/best" name="Przyjźni zwierzętom"/>
                 <MenuLink to="/worst" name="Nieprzyjaźni zwierzętom"/>
-                <MenuLink to="#" name="W twoim okręgu wyborczym"/>
+                <MenuLink to="/location" name="W twoim okręgu wyborczym"/>
                 <MenuLink to="/contact" name="Kontakt"/>
             </MenuContainer>
         )
