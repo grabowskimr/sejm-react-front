@@ -12,6 +12,8 @@ import WorstForAnimals from './WorstForAnimals';
 import ContactPage from './ContactPage';
 import Localizator from './Localizator';
 
+// setup check
+
 class App extends React.Component {
     constructor(props) {
         super(props);
