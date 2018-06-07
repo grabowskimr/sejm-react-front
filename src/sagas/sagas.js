@@ -2,6 +2,7 @@ import {select, call, put, takeEvery } from 'redux-saga/effects';
 
 import ACTIONS from '../constants/actions';
 import dbActions from '../actions/dbActions';
+import mapActions from '../utils/map';
 
 function* getEnvoyList(action) {
     const list = yield call(dbActions.getEnvoyList, action.payload.type);
@@ -48,6 +49,16 @@ function* getWorstForAnimals() {
     yield put({type: ACTIONS.GET_WORST_FOR_ANIMALS_SUCCESS, payload: {list}});
 }
 
+function* getCurrentLocation() {
+    const location = yield call(mapActions.getLocalization);
+    yield put({type: ACTIONS.GET_LOCATION_SUCCESS, payload: {location}});
+}
+
+function* getEnvoyListByPos(action) {
+    const list = yield call(dbActions.getEnvoyListByPos, action.payload.location);
+    yield put({type: ACTIONS.GET_ENVOY_LIST_BY_POS_SUCCESS, payload: {list}});
+}
+
 function* sejmikSaga() {
     yield takeEvery(ACTIONS.GET_ENVOY_LIST, getEnvoyList);
     yield takeEvery(ACTIONS.GET_ENVOY_LIST_POSITIVE, getEnvoyListPositive);
@@ -58,6 +69,8 @@ function* sejmikSaga() {
     yield takeEvery(ACTIONS.GET_QUERY_LIST, getQueryList);
     yield takeEvery(ACTIONS.GET_BEST_FOR_ANIMALS, getBestForAnimals);
     yield takeEvery(ACTIONS.GET_WORST_FOR_ANIMALS, getWorstForAnimals);
+    yield takeEvery(ACTIONS.GET_LOCATION, getCurrentLocation);
+    yield takeEvery(ACTIONS.GET_LOCATION_SUCCESS, getEnvoyListByPos);
 }
 
 export default sejmikSaga;

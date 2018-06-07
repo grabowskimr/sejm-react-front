@@ -3,7 +3,7 @@ var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: {
         main: path.join(__dirname, '/src/main.jsx'),
         vendor: path.join(__dirname, '/src/vendor.js')          

@@ -67,3 +67,15 @@ export function getWorstForAnimals() {
         type: ACTIONS.GET_WORST_FOR_ANIMALS
     }
 }
+
+export function getLocation() {
+    return {
+        type: ACTIONS.GET_LOCATION
+    }
+}
+
+export function toggleMenu() {
+    return {
+        type: ACTIONS.TOGGLE_MENU
+    }
+}

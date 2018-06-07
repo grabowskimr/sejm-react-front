@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const MenuLink = (props) => (
     <li>
-        <Link className="menu-link" to={props.to}>{props.name}</Link>
+        <Link className="menu-link" to={props.to} {...props}>{props.name}</Link>
     </li>
 )
 

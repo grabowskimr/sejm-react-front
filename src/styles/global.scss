@@ -28,6 +28,14 @@
         &.danger {
             background: $red;
         }
+        &.long-title {
+            font-size: 18px;
+            left: 5%;
+            width: 90%;
+            text-align: center;
+            padding: 0px;
+            top: -25px;
+        }
     }
     .envoy-item-list {
         min-width: calc(33.33% - 20px);
@@ -112,7 +120,12 @@
     padding: 30px;
     background: white;
     box-sizing: border-box;
+    margin-bottom: 40px;
 }
 .friend-list {
     margin-top: 50px;
+}
+.mobile-menu,
+.toggle-mobile-menu {
+    display: none;
 }

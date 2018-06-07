@@ -22,7 +22,7 @@ const dbActions = {
                     !(item.party.toUpperCase() in envoyList) && (envoyList[item.party.toUpperCase()] = []);
                     envoyList[item.party.toUpperCase()].push(item);
                 });
-                return {alphabet: Object.keys(envoyList), envoyList};
+                return {alphabet: [], envoyList};
             })
     },
 
@@ -88,6 +88,10 @@ const dbActions = {
             .then(response => response.data)
     },
 
+    getEnvoyListByPos: function(location) {
+        return axios.get(`/dbCallFront.php?action=getEnvoyListByPos&city=${location.city}&country=${location.country}`)
+            .then(response => response.data)
+    }
 }
 
 export default dbActions;

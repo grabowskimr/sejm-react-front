@@ -11,7 +11,12 @@ const appReducer = (state = {
     structure: [],
     alphabetOrder: 'asc',
     bestForAnimals: [],
-    worstForAnimals: []
+    worstForAnimals: [],
+    location: '',
+    nearestEnvoy: [],
+    locationFinish: false,
+    getEnvoyFinish: false,
+    openedMobileMenu: false
 }, action) => {
     switch(action.type) {
         case ACTIONS.UPDATE_SEARCH_QUERY: 
@@ -69,6 +74,23 @@ const appReducer = (state = {
             return {
                 ...state,
                 worstForAnimals: action.payload.list
+            }
+        case ACTIONS.GET_LOCATION_SUCCESS: 
+            return {
+                ...state,
+                location: action.payload.location,
+                locationFinish: true
+            }
+        case ACTIONS.GET_ENVOY_LIST_BY_POS_SUCCESS:
+            return {
+                ...state,
+                nearestEnvoy: action.payload.list,
+                getEnvoyFinish: true
+            }
+        case ACTIONS.TOGGLE_MENU:
+            return {
+                ...state,
+                openedMobileMenu: !state.openedMobileMenu
             }
         default:
             return state;

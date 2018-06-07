@@ -1,0 +1,127 @@
+@media screen and (max-width: 1220px) {
+
+    .mobile-menu,
+    .toggle-mobile-menu {
+        display: initial;
+    }
+    .tm-header-react > .menu-container {
+        display: none;
+    }
+    .mobile-menu {
+        position: fixed;
+        top: 0px;
+        right: 0px;
+        background: rgba(0, 0, 0, 0.13);
+        height: 100vh;
+        z-index: 9999;
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        transition: all .2s ease-in-out;
+        transform: translateX(100%);
+        &.opened {
+            transform: translateX(0%);
+        }
+        & > div {
+            width: 250px;
+            background: #fff;
+            min-height: 100vh;
+            float: right;
+        }
+        .menu-container {
+            margin: 0px;
+        }
+        .menu-list {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            box-sizing: border-box;
+            padding: 20px;
+            .menu-link {
+                display: block;
+            }
+        }
+    }
+
+}
+@media screen and (max-width: 960px) {
+
+    .envoy-list .envoy-item-list {
+        min-width: calc(50% - 20px);
+    }
+
+}
+@media screen and (max-width: 768px) {
+
+    .envoy-list .envoy-item-list {
+        min-width: calc(100% - 20px);
+    }
+    .envoy-content-page .envoy-content-top {
+        flex-direction: column;
+        .envoy-image-container {
+            margin-right: 0px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    }
+    .envoy-pagination {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        z-index: 9999;
+        background: #fff;
+    }
+    .envoy-list > h3.long-title {
+        position: static;
+        margin: 0 auto;
+        height: auto;
+        border-radius: 5px;
+        padding: 10px;
+    }
+    .sorting-container .sorting-menu ul .list-span .list-span-content {
+        margin: 0px;
+        a {
+            padding: 0px
+        }
+    }
+    .sorting-container .sorting-menu ul {
+        width: 250px;
+    }
+    .search-container {
+        flex-direction: column;
+    }
+    .search-container .alphabet-container .alphabet-list {
+        padding: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    #footer .footer-icon ul {
+        flex-wrap: wrap;
+        li {
+            width: 50%;
+            text-align: center;
+        }
+    }
+
+}
+@media screen and (max-width: 540px) {
+
+    .envoy-list {
+        padding: 30px 5px 20px;
+    }
+
+    .envoy-content-page .envoy-content-inner {
+        padding: 60px 10px 30px;
+    }
+    .envoy-pagination > a, .envoy-pagination > span {
+        width: auto;
+        text-align: center;
+        padding: 10px;
+    }
+    .home-text-container {
+        padding: 15px;
+    }
+
+
+}

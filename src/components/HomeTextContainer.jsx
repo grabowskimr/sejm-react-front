@@ -16,7 +16,7 @@ class HomeTextContainer extends React.Component {
                     Spopularyzował się w latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem Ipsum, 
                     a ostatnio z zawierającym różne wersje</p>
                 <p className="criteria-link-container">
-                    <Link to="#">Nasze kryteria <img src="/images/arror-right-green.png" /></Link>
+                    <Link to="/criterions">Nasze kryteria <img src="/images/arror-right-green.png" /></Link>
                 </p>
             </div>
         )
