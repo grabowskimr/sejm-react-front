@@ -16,7 +16,8 @@ const appReducer = (state = {
     nearestEnvoy: [],
     locationFinish: false,
     getEnvoyFinish: false,
-    openedMobileMenu: false
+    openedMobileMenu: false,
+    countries: []
 }, action) => {
     switch(action.type) {
         case ACTIONS.UPDATE_SEARCH_QUERY: 
@@ -91,6 +92,11 @@ const appReducer = (state = {
             return {
                 ...state,
                 openedMobileMenu: !state.openedMobileMenu
+            }
+        case ACTIONS.GET_COUNTRIES_SUCCESS:
+            return {
+                ...state,
+                countries: action.payload.countries
             }
         default:
             return state;

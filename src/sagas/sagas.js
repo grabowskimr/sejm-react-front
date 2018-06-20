@@ -59,6 +59,11 @@ function* getEnvoyListByPos(action) {
     yield put({type: ACTIONS.GET_ENVOY_LIST_BY_POS_SUCCESS, payload: {list}});
 }
 
+function* getCountries() {
+    const countries = yield call(dbActions.getCountries);
+    yield put({type: ACTIONS.GET_COUNTRIES_SUCCESS, payload: {countries}});
+}
+
 function* sejmikSaga() {
     yield takeEvery(ACTIONS.GET_ENVOY_LIST, getEnvoyList);
     yield takeEvery(ACTIONS.GET_ENVOY_LIST_POSITIVE, getEnvoyListPositive);
@@ -71,6 +76,8 @@ function* sejmikSaga() {
     yield takeEvery(ACTIONS.GET_WORST_FOR_ANIMALS, getWorstForAnimals);
     yield takeEvery(ACTIONS.GET_LOCATION, getCurrentLocation);
     yield takeEvery(ACTIONS.GET_LOCATION_SUCCESS, getEnvoyListByPos);
+    yield takeEvery(ACTIONS.GET_COUNTRIES, getCountries);
+    yield takeEvery(ACTIONS.GET_ENVOY_BY_COUNTRY, getEnvoyListByPos);
 }
 
 export default sejmikSaga;

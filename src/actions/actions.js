@@ -79,3 +79,18 @@ export function toggleMenu() {
         type: ACTIONS.TOGGLE_MENU
     }
 }
+
+export function getCountries() {
+    return {
+        type: ACTIONS.GET_COUNTRIES
+    }
+}
+
+export function getEnvoyByCountry(location) {
+    return {
+        type: ACTIONS.GET_ENVOY_BY_COUNTRY,
+        payload: {
+            location
+        }
+    }
+}

@@ -91,6 +91,11 @@ const dbActions = {
     getEnvoyListByPos: function(location) {
         return axios.get(`/dbCallFront.php?action=getEnvoyListByPos&city=${location.city}&country=${location.country}`)
             .then(response => response.data)
+    },
+    
+    getCountries: function(id) {
+        return axios.get(`/dbCallFront.php?action=getCountries`)
+            .then(response => response.data)
     }
 }
 
