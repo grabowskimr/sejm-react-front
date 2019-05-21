@@ -26,8 +26,8 @@ class App extends React.Component {
                 <div className="content-container">
                     <Switch>
                         <Route exact path="/" component={HomePage} />
-                        <Route exact path="/meps" component={MepsPage} />
-                        <Route exact path="/senators" component={SenatorsPage} />
+                        <Route exact path="/eurowybory" component={MepsPage} />
+                        {/* <Route exact path="/senators" component={SenatorsPage} /> */}
                         <Route exact path="/criterions" component={CriterionPage} />
                         <Route exact path="/best" component={BestForAnimals} />
                         <Route exact path="/worst" component={WorstForAnimals} />

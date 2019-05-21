@@ -14,7 +14,7 @@ class Header extends React.Component {
         this.toggleMenu = this.toggleMenu.bind(this);
     }
 
-    toggleMenu() {
+    toggleMenu(e) {
         this.props.toggleMenu();
     }
 
@@ -32,7 +32,7 @@ class Header extends React.Component {
                         <img src="/images/logo.png" alt="logo"/>
                     </Link>
                     <button className="toggle-mobile-menu" onClick={this.toggleMenu}><img src="/images/assets/menu.png" /></button>
-                    <div className={this.state.openedMobileMenu ? "mobile-menu opened" : "mobile-menu"}>
+                    <div className={this.state.openedMobileMenu ? "mobile-menu opened" : "mobile-menu"} onClick={this.toggleMenu}>
                         <div>
                             <Link to="/" onClick={this.toggleMenu}>
                                 <img src="/images/logo.png" alt="logo"/>
