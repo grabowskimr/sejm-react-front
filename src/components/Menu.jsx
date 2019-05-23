@@ -11,8 +11,8 @@ class Menu extends React.Component {
     render() {
         return (
             <MenuContainer>
-                <MenuLink onClick={this.props.onClick} to="/eurowybory" name="Eurowybory"/>
-                {/* <MenuLink onClick={this.props.onClick} to="/senators" name="Senatorowie"/> */}
+                <MenuLink onClick={this.props.onClick} to="/poslowie" name="Posłowie"/>
+                <MenuLink onClick={this.props.onClick} to="/eurowyboory" name="Eurowybory"/>
                 <MenuLink onClick={this.props.onClick} to="/criterions" name="Nasze kryteria"/>
                 <MenuLink onClick={this.props.onClick} to="/best" name="Przyjźni zwierzętom"/>
                 <MenuLink onClick={this.props.onClick} to="/worst" name="Nieprzyjaźni zwierzętom"/>

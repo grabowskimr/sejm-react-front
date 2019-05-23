@@ -23,13 +23,13 @@ class MepsPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getEnvoyList('asc', 'Europoseł');
+        this.props.getEnvoyList('asc', 'envoy');
     }
 
     render() {
         return (
             <React.Fragment>
-                <h3 className="subpage-title">Kandydaci</h3>
+                <h3 className="subpage-title">Posłowie</h3>
                 <Search type="envoy" />
                 { this.state.alphabetOrder === 'asc' ?
                     Object.keys(this.state.envoyList).map((key) => (

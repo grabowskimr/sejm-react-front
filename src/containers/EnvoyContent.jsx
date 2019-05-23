@@ -13,7 +13,7 @@ const EnvoyContent = ({envoy, criterions, criterionsNames}) => (
                 </div>
                 <EnvoyInformation envoy={envoy} criterions={criterions} criterionsNames={criterionsNames} />
             </div>
-            <EnvoyDescription envoy={envoy} />
+            {envoy.type != 'Europoseł' ? <EnvoyDescription envoy={envoy} /> : null}
         </div>
         <EnvoyPagination />
     </div>

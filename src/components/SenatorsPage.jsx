@@ -23,13 +23,13 @@ class SenatorsPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getEnvoyList('asc', 'senator');
+        this.props.getEnvoyList('asc', 'Europoseł');
     }
 
     render() {
         return (
             <React.Fragment>
-                <h3 className="subpage-title">Senatorowie</h3>
+                <h3 className="subpage-title">Kandydaci</h3>
                 <Search type="senator" />
                 { this.state.alphabetOrder === 'asc' ?
                     Object.keys(this.state.envoyList).map((key) => (
