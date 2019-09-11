@@ -23,7 +23,7 @@ class SenatorsPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getEnvoyList('asc', 'Europoseł');
+        this.props.getEnvoyList('asc', 'Senator');
     }
 
     render() {

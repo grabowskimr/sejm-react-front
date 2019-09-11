@@ -15,7 +15,8 @@ class Localizator extends React.Component {
             getEnvoyFinish: this.props.getEnvoyFinish,
             countries: this.props.countries,
             country: '',
-            timeout: false
+            timeout: false,
+            suggestion: false
         };
         this.onChange = this.onChange.bind(this);
         this.onChangeSuggestion = this.onChangeSuggestion.bind(this);
@@ -53,7 +54,8 @@ class Localizator extends React.Component {
             country: value
         });
         this.setState({
-            country: value
+            country: value,
+            suggestion: true
         });
     }
 
@@ -63,10 +65,22 @@ class Localizator extends React.Component {
                 {this.state.locationFinish ?
                     <React.Fragment>
                         <h3 className="subpage-title">W twoim okręgu</h3>
-                        {(this.state.getEnvoyFinish && this.state.nearestEnvoy.length) ? 
+                        {(this.state.getEnvoyFinish && this.state.nearestEnvoy.length && !this.state.suggestion) ? 
                             <div className="friend-list">
                                 <EnvoyList letter={"Powiat " + this.state.location.country} list={this.state.nearestEnvoy}/>
-                            </div> : <h3 className="subpage-title">Brak posłów i senatorów</h3>
+                            </div> : <div className="custom-location">
+                                <AutoComplate 
+                                    countries={this.state.countries} 
+                                    onChange={this.onChange} 
+                                    onChangeSuggestion={this.onChangeSuggestion}
+                                    value={this.state.country} 
+                                />
+                                {(this.state.getEnvoyFinish && this.state.nearestEnvoy.length && this.state.suggestion) ? 
+                                    <div className="friend-list">
+                                        <EnvoyList letter={"Powiat " + this.state.country} list={this.state.nearestEnvoy}/>
+                                    </div> : <h3 className="subpage-title-2">Pusta lista</h3>
+                                }
+                            </div>
                         }
                     </React.Fragment> 
                     : this.state.timeout ? 

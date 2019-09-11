@@ -11,6 +11,7 @@ import BestForAnimals from './BestForAnimals';
 import WorstForAnimals from './WorstForAnimals';
 import ContactPage from './ContactPage';
 import Localizator from './Localizator';
+import Petition from './Petition';
 
 // setup check
 
@@ -27,13 +28,14 @@ class App extends React.Component {
                     <Switch>
                         <Route exact path="/" component={HomePage} />
                         <Route exact path="/poslowie" component={MepsPage} />
-                        <Route exact path="/eurowyboory" component={SenatorsPage} />
+                        <Route exact path="/senatorzy" component={SenatorsPage} />
                         <Route exact path="/criterions" component={CriterionPage} />
                         <Route exact path="/best" component={BestForAnimals} />
                         <Route exact path="/worst" component={WorstForAnimals} />
                         <Route exact path="/contact" component={ContactPage} />
                         <Route exact path="/location" component={Localizator} />
                         <Route path="/envoy/:id" component={EnvoyPage} />
+                        <Route path="/petition" component={Petition} />
                     </Switch>
                 </div>
             </React.Fragment>
