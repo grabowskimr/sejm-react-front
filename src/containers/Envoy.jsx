@@ -9,7 +9,7 @@ const Envoy = ({envoy}) => {
     return (
         <Link to={"/envoy/" + envoy.id} className="envoy-item-list" onClick={scrollTop}>
             <div className="envoy-image">
-                <img src={envoy.image} alt="image"/>
+                <img src={envoy.image ? envoy.image : '/images/posel/avatar.jpg'} alt="image"/>
             </div>
             <div className="envoy-content">
                 <h3>{envoy.name}<br />{envoy.surname}</h3>

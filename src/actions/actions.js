@@ -104,12 +104,13 @@ export function setAnswer(answer) {
     }
 }
 
-export function sendAnswers(answers, id) {
+export function sendAnswers(answers, id, points) {
     return {
         type: ACTIONS.SEND_ANSWERS,
         payload: {
             answers,
-            id
+            id,
+            points
         }
     }
 }

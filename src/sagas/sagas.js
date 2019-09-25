@@ -65,7 +65,7 @@ function* getCountries() {
 }
 
 function* sendAnswers(action) {
-    const message = yield call(dbActions.sendAnswers, action.payload.answers, action.payload.id);
+    const message = yield call(dbActions.sendAnswers, action.payload.answers, action.payload.id, action.payload.points);
     yield put({type: ACTIONS.SEND_ANSWERS_SUCCESS, payload: {message}});
 }
 

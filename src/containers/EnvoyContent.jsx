@@ -9,7 +9,7 @@ const EnvoyContent = ({envoy, criterions, criterionsNames}) => (
         <div className="envoy-content-inner">
             <div className="envoy-content-top">
                 <div className="envoy-image-container">
-                    <img src={envoy.image} alt="image"/>
+                    <img src={envoy.image ? envoy.image : '/images/posel/avatar.jpg'} alt="image"/>
                 </div>
                 <EnvoyInformation envoy={envoy} criterions={criterions} criterionsNames={criterionsNames} />
             </div>

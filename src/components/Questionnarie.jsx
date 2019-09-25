@@ -35,13 +35,16 @@ class Questionnarie extends React.Component {
 
   submit(e) {
     e.preventDefault();
-    console.log(this.props.answers);
+    var points = parseFloat(this.state.envoy.points);
+    Object.keys(this.props.answers).map(answer => {
+      points += this.props.answers[answer].point
+    });
     if(Object.keys(this.props.answers).length < 13) {
       this.setState({
         validationMessage: 'Proszę odpowiedzieć na wszystkie pytania'
       });
     } else {
-      this.props.sendAnswers(JSON.stringify(this.props.answers), this.state.envoy.id);
+      this.props.sendAnswers(JSON.stringify(this.props.answers), this.state.envoy.id, points);
     }
   }
 

@@ -98,8 +98,8 @@ const dbActions = {
             .then(response => response.data)
     },
 
-    sendAnswers: function(answers, id) {
-        return axios.get(`/dbCallFront.php?action=sendAnswers&answers=${answers}&id=${id}`)
+    sendAnswers: function(answers, id, points) {
+        return axios.get(`/dbCallFront.php?action=sendAnswers&answers=${answers}&id=${id}&points=${points}`)
             .then(response => response.data)
     },
 
