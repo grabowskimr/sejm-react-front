@@ -12,6 +12,7 @@ import WorstForAnimals from './WorstForAnimals';
 import ContactPage from './ContactPage';
 import Localizator from './Localizator';
 import Petition from './Petition';
+import Questionnarie from './Questionnarie';
 
 // setup check
 
@@ -34,6 +35,7 @@ class App extends React.Component {
                         <Route exact path="/worst" component={WorstForAnimals} />
                         <Route exact path="/contact" component={ContactPage} />
                         <Route exact path="/location" component={Localizator} />
+                        <Route exact path="/ankieta" component={Questionnarie} />
                         <Route path="/envoy/:id" component={EnvoyPage} />
                         <Route path="/petition" component={Petition} />
                     </Switch>

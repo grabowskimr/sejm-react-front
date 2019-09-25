@@ -17,7 +17,9 @@ const appReducer = (state = {
     locationFinish: false,
     getEnvoyFinish: false,
     openedMobileMenu: false,
-    countries: []
+    countries: [],
+    answers: {},
+    answerMessage: ''
 }, action) => {
     switch(action.type) {
         case ACTIONS.UPDATE_SEARCH_QUERY: 
@@ -97,6 +99,19 @@ const appReducer = (state = {
             return {
                 ...state,
                 countries: action.payload.countries
+            }
+        case ACTIONS.SET_ANSWER:
+            return {
+                ...state,
+                answers: {
+                    ...state.answers,
+                    [action.payload.answer.id]: action.payload.answer
+                }
+            }
+        case ACTIONS.SEND_ANSWERS_SUCCESS: 
+            return {
+                ...state,
+                answerMessage: action.payload.message
             }
         default:
             return state;

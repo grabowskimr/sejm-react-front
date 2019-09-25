@@ -94,3 +94,22 @@ export function getEnvoyByCountry(location) {
         }
     }
 }
+
+export function setAnswer(answer) {
+    return {
+        type: ACTIONS.SET_ANSWER,
+        payload: {
+            answer
+        }
+    }
+}
+
+export function sendAnswers(answers, id) {
+    return {
+        type: ACTIONS.SEND_ANSWERS,
+        payload: {
+            answers,
+            id
+        }
+    }
+}

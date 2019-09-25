@@ -96,7 +96,19 @@ const dbActions = {
     getCountries: function(id) {
         return axios.get(`/dbCallFront.php?action=getCountries`)
             .then(response => response.data)
+    },
+
+    sendAnswers: function(answers, id) {
+        return axios.get(`/dbCallFront.php?action=sendAnswers&answers=${answers}&id=${id}`)
+            .then(response => response.data)
+    },
+
+    checkId: function(hash) {
+        hash = hash.slice(3);
+        return axios.get(`/dbCallFront.php?action=checkId&hash=${hash}`);
     }
+
+
 }
 
 export default dbActions;
