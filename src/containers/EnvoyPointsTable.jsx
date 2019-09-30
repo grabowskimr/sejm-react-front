@@ -13,6 +13,11 @@ const EnvoyPointsTable = ({criterions, criterionsNames, envoy}) => {
                             <td className={criterion[Object.keys(criterion)[0]].status < 0 ? "bad" : criterion[Object.keys(criterion)[0]].status > 0 ? "good" : "medium"}>{criterion[Object.keys(criterion)[0]].status > 0 ? criterion[Object.keys(criterion)[0]].status : criterion[Object.keys(criterion)[0]].status}</td>
                         </tr>
                     ))}
+                </tbody>
+            </table>
+            <h2 className="table-title">Odpowiedzi w ankiecie</h2>
+            <table className="envoy-points-table">
+                <tbody>
                     {Object.keys(answers).map((answer, index) => {
                         return (
                             <tr key={index}>
