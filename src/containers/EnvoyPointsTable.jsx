@@ -15,7 +15,7 @@ const EnvoyPointsTable = ({criterions, criterionsNames, envoy}) => {
                     ))}
                 </tbody>
             </table>
-            <h2 className="table-title">Odpowiedzi w ankiecie</h2>
+            {answers && Object.keys(answers).length ? <h2 className="table-title">Odpowiedzi w ankiecie</h2> : null}
             <table className="envoy-points-table">
                 <tbody>
                     {Object.keys(answers).map((answer, index) => {

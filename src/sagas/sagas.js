@@ -9,6 +9,16 @@ function* getEnvoyList(action) {
     yield put({type: ACTIONS.GET_ENVOY_LIST_SUCCESS, payload: {list}});
 }
 
+function* getSenatorList(action) {
+    const list = yield call(dbActions.getEnvoyList, action.payload.type);
+    yield put({type: ACTIONS.GET_SENATOR_LIST_SUCCESS, payload: {list}});
+}
+
+function* getMepsList(action) {
+    const list = yield call(dbActions.getEnvoyList, action.payload.type);
+    yield put({type: ACTIONS.GET_MEPS_LIST_SUCCESS, payload: {list}});
+}
+
 function* getEnvoyListPositive(action) {
     const list = yield call(dbActions.getEnvoyListOnlyPositive, action.payload.type);
     yield put({type: ACTIONS.GET_ENVOY_LIST_POSITIVE_SUCCESS, payload: {list}});
@@ -71,6 +81,8 @@ function* sendAnswers(action) {
 
 function* sejmikSaga() {
     yield takeEvery(ACTIONS.GET_ENVOY_LIST, getEnvoyList);
+    yield takeEvery(ACTIONS.GET_SENATOR_LIST, getSenatorList);
+    yield takeEvery(ACTIONS.GET_MEPS_LIST, getMepsList);
     yield takeEvery(ACTIONS.GET_ENVOY_LIST_POSITIVE, getEnvoyListPositive);
     yield takeEvery(ACTIONS.GET_ENVOY_LIST_BY_PARTY, getEnvoyListByParty);
     yield takeEvery(ACTIONS.GET_ENVOY_LIST_BY_POINTS, getEnvoyListByPoints);

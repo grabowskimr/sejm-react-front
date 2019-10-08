@@ -10,20 +10,22 @@ class MepsPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            envoyList: this.props.envoyList,
+            envoyList: this.props.mepsList,
             alphabetOrder: this.props.alphabetOrder
         }
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            envoyList: nextProps.envoyList,
+            envoyList: nextProps.mepsList,
             alphabetOrder: nextProps.alphabetOrder
         })
     }
 
     componentDidMount() {
-        this.props.getEnvoyList('asc', 'envoy');
+        if(!Object.keys(this.state.envoyList).length) {
+            this.props.getEnvoyList('asc', 'envoy');
+        }
     }
 
     render() {
@@ -46,7 +48,7 @@ class MepsPage extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        envoyList: state.appReducer.envoyList,
+        mepsList: state.appReducer.mepsList,
         alphabetOrder: state.appReducer.alphabetOrder
     }
 }

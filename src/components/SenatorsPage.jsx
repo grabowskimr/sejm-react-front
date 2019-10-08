@@ -10,20 +10,22 @@ class SenatorsPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            envoyList: this.props.envoyList,
+            senatorList: this.props.senatorList,
             alphabetOrder: this.props.alphabetOrder
         }
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            envoyList: nextProps.envoyList,
+            senatorList: nextProps.senatorList,
             alphabetOrder: nextProps.alphabetOrder
         })
     }
 
     componentDidMount() {
-        this.props.getEnvoyList('asc', 'Senator');
+        if(!Object.keys(this.props.senatorList).length) {
+            this.props.getEnvoyList('asc', 'Senator');
+        }
     }
 
     render() {
@@ -32,11 +34,11 @@ class SenatorsPage extends React.Component {
                 <h3 className="subpage-title">Kandydaci</h3>
                 <Search type="senator" />
                 { this.state.alphabetOrder === 'asc' ?
-                    Object.keys(this.state.envoyList).map((key) => (
-                        <EnvoyList key={key} letter={key} list={this.state.envoyList[key]}/>
+                    Object.keys(this.state.senatorList).map((key) => (
+                        <EnvoyList key={key} letter={key} list={this.state.senatorList[key]}/>
                     )) : 
-                    Object.keys(this.state.envoyList).reverse().map((key) => (
-                        <EnvoyList key={key} letter={key} list={this.state.envoyList[key]}/>
+                    Object.keys(this.state.senatorList).reverse().map((key) => (
+                        <EnvoyList key={key} letter={key} list={this.state.senatorList[key]}/>
                     ))
                 }
             </React.Fragment>
@@ -46,7 +48,7 @@ class SenatorsPage extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        envoyList: state.appReducer.envoyList,
+        senatorList: state.appReducer.senatorList,
         alphabetOrder: state.appReducer.alphabetOrder
     }
 }

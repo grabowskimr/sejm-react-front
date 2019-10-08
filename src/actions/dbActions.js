@@ -106,6 +106,10 @@ const dbActions = {
     checkId: function(hash) {
         hash = hash.slice(3);
         return axios.get(`/dbCallFront.php?action=checkId&hash=${hash}`);
+    },
+
+    sign: function(data) {
+        return axios.get(`/dbCallFront.php?action=sign&imie=${data.imie}&email=${data.email}`);
     }
 
 

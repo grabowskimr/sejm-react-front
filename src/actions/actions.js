@@ -9,9 +9,21 @@ export function updateSearchQuery(query) {
 }
 
 export function getEnvoyList(order, type) {
-    return {
-        type: ACTIONS.GET_ENVOY_LIST,
-        payload: {order, type}
+    if(type === 'Senator') {
+        return {
+            type: ACTIONS.GET_SENATOR_LIST,
+            payload: {order, type}
+        }
+    } else if(type === 'envoy') {
+        return {
+            type: ACTIONS.GET_MEPS_LIST,
+            payload: {order, type}
+        }
+    } else {
+        return {
+            type: ACTIONS.GET_ENVOY_LIST,
+            payload: {order, type}
+        }
     }
 }
 

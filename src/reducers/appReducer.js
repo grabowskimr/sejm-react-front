@@ -19,7 +19,9 @@ const appReducer = (state = {
     openedMobileMenu: false,
     countries: [],
     answers: {},
-    answerMessage: ''
+    answerMessage: '',
+    senatorList: [],
+    mepsList: []
 }, action) => {
     switch(action.type) {
         case ACTIONS.UPDATE_SEARCH_QUERY: 
@@ -41,6 +43,18 @@ const appReducer = (state = {
             return {
                 ...state,
                 envoyList: action.payload.list.envoyList,
+                alphabet: action.payload.list.alphabet
+            }
+        case ACTIONS.GET_SENATOR_LIST_SUCCESS:
+            return {
+                ...state,
+                senatorList: action.payload.list.envoyList,
+                alphabet: action.payload.list.alphabet
+            }
+        case ACTIONS.GET_MEPS_LIST_SUCCESS:
+            return {
+                ...state,
+                mepsList: action.payload.list.envoyList,
                 alphabet: action.payload.list.alphabet
             }
         case ACTIONS.GET_ENVOY_LIST_BY_PARTY:

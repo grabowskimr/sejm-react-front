@@ -10,7 +10,7 @@ class HomePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            envoyList: this.props.envoyList,
+            envoyList: [],
             alphabetOrder: this.props.alphabetOrder
         }
     }
@@ -30,15 +30,19 @@ class HomePage extends React.Component {
         return (
             <React.Fragment>
                 <HomeTextContainer />
-                <Search type="all" />
-                { this.state.alphabetOrder === 'asc' ?
-                    Object.keys(this.state.envoyList).map((key) => (
-                        <EnvoyList key={key} letter={key} list={this.state.envoyList[key]}/>
-                    )) : 
-                    Object.keys(this.state.envoyList).reverse().map((key) => (
-                        <EnvoyList key={key} letter={key} list={this.state.envoyList[key]}/>
-                    ))
-                }
+                {Object.keys(this.state.envoyList) ?
+                <div>
+                    <Search type="all" />
+                    { this.state.alphabetOrder === 'asc' ?
+                        Object.keys(this.state.envoyList).map((key) => (
+                            <EnvoyList key={key} letter={key} list={this.state.envoyList[key]}/>
+                        )) : 
+                        Object.keys(this.state.envoyList).reverse().map((key) => (
+                            <EnvoyList key={key} letter={key} list={this.state.envoyList[key]}/>
+                        ))
+                    } 
+                </div>
+                : <div className="loader">Loading...</div>}
             </React.Fragment>
         )
     }
