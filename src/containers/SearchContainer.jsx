@@ -7,9 +7,9 @@ const SearchContainer = (props) => {
             <div className="main-search">
                 {props.children}
             </div>
-            <div className="alphabet-container">
+            {/* <div className="alphabet-container">
                 <AlphabetList />
-            </div>
+            </div> */}
         </div>
     )
 };
