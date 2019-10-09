@@ -23,7 +23,7 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getEnvoyList('asc','all');
+        this.props.getEnvoyList('asc','envoy');
     }
 
     render() {

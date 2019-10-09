@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="sejmik" />
+  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="sejmik" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="sejmik">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/templates/yootheme/js" local="$PROJECT_DIR$/dist" web="/" />
+            <mapping local="" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ON_EXPLICIT_SAVE" />
+  </component>
 </project>

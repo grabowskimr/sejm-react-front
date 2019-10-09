@@ -340,3 +340,32 @@
   font-size: 30px;
   margin: 0px;
 }
+.critetions-content {
+  h2 {
+    font-size: 30px;
+    color: #58ac00;
+    font-weight: 600;
+  }
+  h3 {
+    margin: 15px 0px;
+    color: #55a100;
+    font-weight: 600;
+    font-size: 26px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  ul {
+    li {
+      margin: 15px 0px;
+    }
+    h4 {
+      font-size: 20px;
+      margin: 0px;
+      padding: 0px;
+    }
+    p {
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+}

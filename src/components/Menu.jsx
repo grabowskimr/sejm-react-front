@@ -12,7 +12,6 @@ class Menu extends React.Component {
         return (
             <MenuContainer>
                 <MenuLink onClick={this.props.onClick} to="/poslowie" name="Kandydaci Sejm 2019"/>
-                <MenuLink onClick={this.props.onClick} to="/senatorzy" name="Kandydaci Senat 2019"/>
                 <MenuLink onClick={this.props.onClick} to="/criterions" name="Nasze kryteria"/>
                 <MenuLink onClick={this.props.onClick} to="/best" name="Przyjaźni zwierzętom"/>
                 <MenuLink onClick={this.props.onClick} to="/worst" name="Nieprzyjaźni zwierzętom"/>
