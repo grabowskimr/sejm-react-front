@@ -37,7 +37,7 @@ class App extends React.Component {
                         <Route exact path="/location" component={Localizator} />
                         <Route exact path="/ankieta" component={Questionnarie} />
                         <Route path="/envoy/:id" component={EnvoyPage} />
-                        <Route path="/petition" component={Petition} />
+                        <Route path="/konstytucja_dla_zwierzat" component={Petition} />
                     </Switch>
                 </div>
             </React.Fragment>

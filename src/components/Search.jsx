@@ -62,36 +62,42 @@ class Search extends React.Component {
         e.preventDefault();
         this.props.getEnvoyListByParty(this.state.type);
         this.toggleMenu();
+        window.scrollBy(0, 1);
     }
 
     getListAsc(e) {
         e.preventDefault();
         this.props.getEnvoyList('asc', this.state.type);
         this.toggleMenu();
+        window.scrollBy(0, 1);
     }
 
     getListDesc(e) {
         e.preventDefault();
         this.props.getEnvoyList('desc', this.state.type);
         this.toggleMenu();
+        window.scrollBy(0, 1);
     }
 
     getListByPointsAsc(e) {
         e.preventDefault();
         this.props.getEnvoyListByPoints('asc', this.state.type);
         this.toggleMenu();
+        window.scrollBy(0, 1);
     }
 
     getListByPointDesc(e) {
         e.preventDefault();
         this.props.getEnvoyListByPoints('desc', this.state.type);
         this.toggleMenu();
+        window.scrollBy(0, 1);
     }
 
     getOnlyPositive(e) {
         e.preventDefault();
         this.props.getEnvoyListPositive(this.state.type);
         this.toggleMenu();
+        window.scrollBy(0, 1);
     }
 
     searchEnvoes(e) {

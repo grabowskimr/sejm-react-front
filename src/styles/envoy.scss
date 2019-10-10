@@ -103,6 +103,9 @@
     border-top: 1px solid $greyLight;
     box-sizing: border-box;
     padding-top: 30px;
+    div {
+        white-space: pre-wrap;
+    }
     h4 {
         font-size: 18px;
         color: $greyText;

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Search from './Search';
-import { getEnvoyList } from '../actions/actions';
+import { getEnvoyListByPoints } from '../actions/actions';
 import EnvoyList from '../containers/EnvoyList';
 import HomeTextContainer from './HomeTextContainer';
 
@@ -23,7 +23,7 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getEnvoyList('asc','envoy');
+        this.props.getEnvoyListByPoints('desc','envoy');
     }
 
     render() {
@@ -32,7 +32,7 @@ class HomePage extends React.Component {
                 <HomeTextContainer />
                 {Object.keys(this.state.envoyList) ?
                 <div>
-                    <Search type="all" />
+                    <Search type="envoy" />
                     { this.state.alphabetOrder === 'asc' ?
                         Object.keys(this.state.envoyList).map((key) => (
                             <EnvoyList key={key} letter={key} list={this.state.envoyList[key]}/>
@@ -55,4 +55,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {getEnvoyList})(HomePage);
+export default connect(mapStateToProps, {getEnvoyListByPoints})(HomePage);

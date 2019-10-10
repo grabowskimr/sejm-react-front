@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Search from './Search';
-import { getEnvoyList } from '../actions/actions';
+import { getEnvoyListByPoints } from '../actions/actions';
 import EnvoyList from '../containers/EnvoyList';
 import HomeTextContainer from './HomeTextContainer';
 
@@ -23,7 +23,7 @@ class MepsPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getEnvoyList('asc', 'envoy');
+        this.props.getEnvoyListByPoints('desc', 'envoy');
     }
 
     render() {
@@ -51,4 +51,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {getEnvoyList})(MepsPage);
+export default connect(mapStateToProps, {getEnvoyListByPoints})(MepsPage);

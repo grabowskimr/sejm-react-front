@@ -4,6 +4,7 @@ const EnvoyPointsTable = ({criterions, criterionsNames, envoy}) => {
     var answers = envoy.answers && Object.keys(envoy.answers).length > 0 ? JSON.parse(envoy.answers) : {};
     return (
         <React.Fragment>
+            {criterions.length ? <h2 className="table-title">Dane historyczne</h2> : null}
             <table className="envoy-points-table">
                 <tbody>
                     {criterions.map((criterion, index) => (
@@ -29,10 +30,10 @@ const EnvoyPointsTable = ({criterions, criterionsNames, envoy}) => {
                     })}
                 </tbody>
             </table>
-            <div className="summary-points">
+            {(criterions.length || (answers && Object.keys(answers).length)) ? <div className="summary-points">
                 <h3>Suma punktów</h3>
                 <span className={envoy.points < 0 ? "bad" : envoy.points > 0 ? "good" : "medium"}>{envoy.points > 0 ? envoy.points : envoy.points}</span>
-            </div>
+            </div> : null}
         </React.Fragment>
     );
 }

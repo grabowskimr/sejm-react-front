@@ -17,7 +17,7 @@ class Menu extends React.Component {
                 <MenuLink onClick={this.props.onClick} to="/worst" name="Nieprzyjaźni zwierzętom"/>
                 <MenuLink onClick={this.props.onClick} to="/location" name="W twoim okręgu wyborczym"/>
                 <MenuLink onClick={this.props.onClick} to="/contact" name="Kontakt"/>
-                <MenuLink onClick={this.props.onClick} to="/petition" name="Podpisz petycję"/>
+                <MenuLink onClick={this.props.onClick} to="/konstytucja_dla_zwierzat" name="Podpisz petycję"/>
             </MenuContainer>
         )
     }

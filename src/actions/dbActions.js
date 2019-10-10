@@ -31,14 +31,23 @@ const dbActions = {
             .then(response => {
                 var list = {};
                 response.data.map((item, index) => {
-                    !(`${item.points}p` in list) && (list[`${item.points}p`] = []);
-                    list[`${item.points}p`].push(item);
+                    !(`${item.points}pkt.` in list) && (list[`${item.points}pkt.`] = []);
+                    list[`${item.points}pkt.`].push(item);
                 });
                 var envoyList = {};
-                Object.keys(list).sort().forEach(function(key) {
-                    envoyList[`${key}`] = list[key];
+                var sortedList = Object.keys(list).map(key => parseFloat(key.replace('pkt.',''))).sort((a, b) => {
+                    if(a > b) {
+                        return 1;
+                    } else if(b > a) {
+                        return -1;
+                    } else {
+                        return 0;
+                    }
                 });
-                return {alphabet: Object.keys(list).sort(), envoyList};
+                sortedList.forEach(function(key) {
+                    envoyList[`${key}pkt.`] = list[`${key}pkt.`];
+                });
+                return {alphabet: sortedList, envoyList};
             })
     },
 
