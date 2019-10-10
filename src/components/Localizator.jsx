@@ -33,9 +33,23 @@ class Localizator extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        let sorted = [];
+        if(nextProps.nearestEnvoy) {
+            sorted = nextProps.nearestEnvoy.sort((a,b) => {
+                let pointA = parseFloat(a.points);
+                let pointB = parseFloat(b.points);
+                if(pointA > pointB) {
+                    return -1
+                } else if(pointA < pointB) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            })
+        }
         this.setState({
             location: nextProps.location,
-            nearestEnvoy: nextProps.nearestEnvoy,
+            nearestEnvoy: sorted,
             locationFinish: nextProps.locationFinish,
             getEnvoyFinish: nextProps.getEnvoyFinish,
             countries: nextProps.countries
