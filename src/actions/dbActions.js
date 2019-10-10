@@ -104,7 +104,7 @@ const dbActions = {
     },
 
     checkId: function(hash) {
-        hash = hash.slice(3);
+        hash = hash.slice(4);
         return axios.get(`/dbCallFront.php?action=checkId&hash=${hash}`);
     },
 
